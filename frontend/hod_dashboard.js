@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://it-request-system-1cjr.onrender.com";
 
 // Global variables
 let commentModalInstance = null;

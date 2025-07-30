@@ -365,7 +365,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Submitting form data:', formData);
 
     try {
-      const BASE_URL = "http://localhost:5000";
+      const BASE_URL = "https://it-request-system-1cjr.onrender.com";
       const response = await fetch(`${BASE_URL}/api/submit`, {
         method: 'POST',
         headers: { 

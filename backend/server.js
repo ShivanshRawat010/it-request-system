@@ -26,7 +26,7 @@ const path = require('path');
 const authMiddleware = require('./middleware/authMiddleware');
 
 app.get("/", (req, res) => {
-  res.send('Hello World')
+  res.sendFile(path.join(__dirname, "../frontend/index.html"));
 });
 
 app.use(express.static(path.join(__dirname, '../frontend')));
