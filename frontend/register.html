@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>User Registration - IT Equipment Request Portal</title>
+    <link rel="stylesheet" href="login.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="header-left">
+                <a href="login.html"><img src="logo.png" alt="Company Logo" class="logo" /></a>
+            </div>
+            <div class="header-right">
+                <a href="login.html" class="admin-button">
+                    <i class="fas fa-sign-in-alt"></i> Back to Login
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="register-card">
+            <div class="register-header">
+                <i class="fas fa-user-plus register-icon"></i>
+                <h2>Registration</h2>
+            </div>
+            <form id="registerForm" class="register-form">
+                <div class="form-group">
+                    <label for="regUsername">Username</label>
+                    <input type="text" id="regUsername" name="regUsername" required autocomplete="username" />
+                </div>
+                <div class="form-group">
+                    <label for="regName">Name</label>
+                    <input type="text" id="regName" name="regName" required autocomplete="name" />
+                </div>
+                <div class="form-group">
+                    <label for="regEmail">Email</label>
+                    <input type="email" id="regEmail" name="regEmail" required autocomplete="email" />
+                </div>
+            <div class="form-group">
+                <label for="regPassword">Password</label>
+                <input type="password" id="regPassword" name="regPassword" required autocomplete="new-password" />
+            </div>
+            <div class="form-group">
+                <label for="regDepartment">Department</label>
+                <select id="regDepartment" name="regDepartment" required>
+                    <option value="">-- Select Department --</option>
+                    <option value="Unit Head Office">Unit Head Office</option>
+                    <option value="Operation & Maintenance">Operation & Maintenance</option>
+                    <option value="Operations, Chemistry">Operations, Chemistry</option>
+                    <option value="Coal Quality Management">Coal Quality Management</option>
+                    <option value="Boiler Maintenance">Boiler Maintenance</option>
+                    <option value="Turbine & Auxiliaries">Turbine & Auxiliaries</option>
+                    <option value="CHP, AHP, Bio Mass, Ash Management">CHP, AHP, Bio Mass, Ash Management</option>
+                    <option value="Electrical">Electrical</option>
+                    <option value="Control & Instrumentation">Control & Instrumentation</option>
+                    <option value="Technical Services">Technical Services</option>
+                    <option value="Coal Management Group">Coal Management Group</option>
+                    <option value="Ash management">Ash management</option>
+                    <option value="LAQ">LAQ</option>
+                    <option value="Finance & Accounts">Finance & Accounts</option>
+                    <option value="HR ES CSR Medical, Town Maint">HR ES CSR Medical, Town Maint</option>
+                    <option value="Admin">Admin</option>
+                    <option value="HR">HR</option>
+                    <option value="Medical">Medical</option>
+                    <option value="Corporate HR">Corporate HR</option>
+                    <option value="CSR">CSR</option>
+                    <option value="Information Technology">Information Technology</option>
+                    <option value="MM&C">MM&C</option>
+                    <option value="EHS">EHS</option>
+                    <option value="Solar, Mechanical Project, Civil, Plant Horticulture">Solar, Mechanical Project, Civil, Plant Horticulture</option>
+                    <option value="Electrical Project, TL">Electrical Project, TL</option>
+                    <option value="Mines and CPP">Mines and CPP</option>
+                    <option value="JIPT">JIPT</option>
+                    <option value="IV/1">IV/1</option>
+                    <option value="Sector 1 E">Sector 1 E</option>
+                    <option value="IV/2-3">IV/2-3</option>
+                    <option value="Security">Security</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="regEmployeeCode">Employee Code</label>
+                <input type="text" id="regEmployeeCode" name="regEmployeeCode" required />
+            </div>
+            <div class="form-group">
+                <label for="regDesignation">Designation</label>
+                <input type="text" id="regDesignation" name="regDesignation" required />
+            </div>
+            <div class="form-group">
+                <label for="regContactNumber">Contact Number</label>
+                <input type="tel" id="regContactNumber" name="regContactNumber" required />
+            </div>
+            <button type="submit" id="registerButton">Register</button>
+            <div id="registerMessage" class="register-message"></div>
+            </form>
+        </div>
+    </main>
+
+    <script src="register.js"></script>
+</body>
+</html>

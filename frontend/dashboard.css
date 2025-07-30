@@ -1,0 +1,146 @@
+ /* Status badge colors */
+        .bg-success {
+            background-color: #28a745 !important;
+            color: white !important;
+            font-size: 0.75rem !important;
+            padding: 0.25em 0.5em !important;
+        }
+
+        .bg-danger {
+            background-color: #dc3545 !important;
+            color: white !important;
+            font-size: 0.75rem !important;
+            padding: 0.25em 0.5em !important;
+        }
+
+        .bg-warning {
+            background-color: #ffc107 !important;
+            color: black !important;
+            font-size: 0.75rem !important;
+            padding: 0.25em 0.5em !important;
+        }
+
+        .fixed {
+          padding: 20px;
+          margin-bottom: -1rem;
+            background-color: white;
+            position: fixed;
+            top: 0;
+            height: 19rem;
+            left: 0;
+            width: 100%;
+            z-index: 1030;
+            box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Table container with fixed header */
+        .table-container {
+            position: relative;
+            height: calc(110vh - 350px); /* Adjust based on your header height */
+            overflow-y: auto;
+            margin-top: 18rem;
+        }
+
+        .table-container table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .table-container thead th {
+            position: sticky;
+            top: 0;
+            background-color: #f8f9fa;
+            z-index: 10;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        /* Other existing styles */
+        .card {
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            margin-bottom: -1rem;
+        }
+
+        .table th {
+            background-color: #f8f9fa;
+            color: #495057;
+            font-weight: 600;
+            white-space: nowrap;
+            padding: 12px 15px;
+        }
+
+        .table td {
+            vertical-align: middle;
+            padding: 10px 15px;
+        }
+
+        .table-hover tbody tr:hover {
+            background-color: #f1f3f5;
+        }
+
+        .badge {
+            font-size: 0.9rem;
+            padding: 0.5em 0.75em;
+            border-radius: 0.25rem;
+        }
+
+        /* Request Details Popup Styles */
+        .modal .detail-item {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .modal .detail-label {
+            font-weight: 600;
+            color: #555;
+            display: inline-block;
+            width: 150px;
+        }
+
+        .modal .detail-value {
+            color: #333;
+        }
+
+        .modal .badge {
+            font-size: 0.9em;
+            padding: 5px 8px;
+        }
+
+        .btn[disabled] {
+            opacity: 0.65;
+            cursor: not-allowed;
+        }
+
+        .btn-outline-success[disabled] {
+            color: #6c757d;
+            border-color: #6c757d;
+            background-color: transparent;
+        }
+
+        .btn-outline-danger[disabled] {
+            color: #6c757d;
+            border-color: #6c757d;
+            background-color: transparent;
+        }
+
+        /* Scrollbar styling */
+        .table-container::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        .table-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        .table-container::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 4px;
+        }
+
+        .table-container::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IT Asset Request Portal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation Sidebar -->
+  <nav class="sidebar">
+    <div class="sidebar-header">
+      <img src="logo.png" alt="Company Logo" class="logo">
+      <h1>IT Portal</h1>
+    </div>
+    <ul class="sidebar-menu">
+      <li class="active"><a href="#"><i class="fas fa-file-alt"></i> New Request</a></li>
+      <li><a href="hr_login.html"><i class="fa-solid fa-user"></i></i> HR Dashboard</a></li>
+      <li><a href="hod_login.html"><i class="fa-solid fa-user"></i></i> HOD Dashboard</a></li>
+      <li><a href="ithod_login.html"><i class="fa-solid fa-user"></i></i> IT_HOD Dashboard</a></li>
+    </ul>
+    <button id="logoutButton" class="logout-button" style="width: 100%; padding: 10px; background-color: #e74c3c; color: white; border: none; cursor: pointer; font-size: 16px;">
+      <i class="fas fa-sign-out-alt"></i> Logout
+    </button>
+   <div class="sidebar-footer">
+      <a href="login_dashboard.html" class="admin-button">
+        <i class="fas fa-user-shield"></i> Admin Access
+      </a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="content-header">
+      <h2>IT Asset Request Form</h2>
+     
+      <div class="user-profile" style="position: absolute; top: 48px; right: 30px; cursor: pointer; z-index: 1100;">
+        <i id="profileIcon" class="fas fa-user-circle" style="font-size: 28px; color: #ffffff;"></i>
+        
+      </div>
+
+      <!-- User Credentials Sidebar -->
+      <div id="userSidebar" style="position: fixed; top: 0; right: -320px; width: 320px; height: 100%; background: #f9f9f9; box-shadow: -2px 0 8px rgba(0,0,0,0.3); transition: right 0.3s ease; z-index: 1100; padding: 20px; overflow-y: auto;">
+        <button id="closeSidebar" style="background: none; border: none; font-size: 28px; font-weight: bold; cursor: pointer; position: absolute; top: 10px; right: 10px; color: #555;">&times;</button>
+        <h3>User Information</h3>
+        <div id="userDetails" style="margin-top: 20px; font-size: 14px; color: #333;">
+          <p><strong>Name:</strong> <span id="regName"></span></p>
+          <p><strong>Email:</strong> <span id="regEmail"></span></p>
+          <p><strong>User Name:</strong> <span id="regUsername"></span></p>
+          <p><strong>Department:</strong> <span id="userDepartment"></span></p>
+          <p><strong>Employee Code:</strong> <span id="userEmployeeCode"></span></p>
+          <p><strong>Contact Number:</strong> <span id="userContactNumber"></span></p>
+        </div>
+      </div>
+
+      <!-- Sidebar Overlay -->
+      <div id="sidebarOverlay" style="position: fixed;top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); opacity: 0; visibility: hidden; transition: opacity 0.3s ease; z-index: 1050;"></div>
+      <div class="request-type-selection" style="margin-bottom: -8px; display: flex; align-items: right; gap: 20px; justify-content: flex-end;">
+        <label style="display: flex; align-items: center; gap: 5px; font-weight: 500; cursor: pointer;color: white;">
+          <input type="radio" name="requestedBy" value="self" checked style="transform: scale(1.2); cursor: pointer;">
+          Self
+        </label>
+        <label style="display: flex; align-items: right; gap: 5px; font-weight: 500; cursor: pointer;color: white;">
+          <input type="radio" name="requestedBy" value="behalf" style="transform: scale(1.2); cursor: pointer;">
+          Behalf
+        </label>
+      </div>
+    </div>
+
+    <div class="form-container">
+      <form id="requestForm">
+        <!-- Progress Indicator -->
+        <div class="form-progress">
+          <div class="progress-step active">1. Personal Info</div>
+          <div class="progress-step">2. Equipment Details</div>
+          <div class="progress-step">3. Review & Submit</div>
+        </div>
+
+        <!-- Personal Information Section -->
+        <div class="form-section active" id="personalInfo">
+          <h3><i class="fas fa-user-circle"></i> Personal Information</h3>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+              <label for="employeeCode">Employee Code</label>
+              <input type="text" id="employeeCode" name="employeeCode" placeholder="Enter employee code" required>
+            </div>
+            <div class="form-group">
+              <label for="designation">Designation</label>
+              <select id="designation" name="designation" required>
+                <option value="">-- Select Designation --</option>
+                 <option value="EVP">EVP</option>
+                 <option value="VP">VP</option>
+                 <option value="AVP">AVP</option>
+                <option value="General Manager">General Manager</option>
+                <option value="Deputy General Manager">Deputy General Manager</option>
+                <option value="Assistant general Manager">Assistant general Manager</option>
+                <option value="Manager">Manager</option>
+                <option value="deputy Manager">Deputy Manager</option>
+                <option value="Assistant Manager">Assistant Manager</option>
+                <option value="Assistant Engineer">Assistant Engineer</option>
+                <option value="Junior Engineer">Junior Engineer</option>
+                <option value="Apprentice">Apprentice</option>
+                <option value="Others">Others</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Special Exception</label>
+              <div class="radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="specialAllowance" value="YES">
+                  <span>Yes</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="specialAllowance" value="NO" checked>
+                  <span>No</span>
+                </label>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">User Email</label>
+              <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+              <label for="department">Department</label>
+              <select id="department" name="department" required>
+                <option value="">-- Select Department --</option>
+                <option value="Unit Head Office">Unit Head Office</option>
+                <option value="Operation & Maintenance">Operation & Maintenance</option>
+                <option value="Operations, Chemistry">Operations, Chemistry</option>
+                <option value="Coal Quality Management">Coal Quality Management</option>
+                <option value="Boiler Maintenance">Boiler Maintenance</option>
+                <option value="Turbine & Auxiliaries">Turbine & Auxiliaries</option>
+                <option value="CHP, AHP, Bio Mass, Ash Management">CHP, AHP, Bio Mass, Ash Management</option>
+                <option value="Electrical">Electrical</option>
+                <option value="Control & Instrumentation">Control & Instrumentation</option>
+                <option value="Technical Services">Technical Services</option>
+                <option value="Coal Management Group">Coal Management Group</option>
+                <option value="Ash management">Ash management</option>
+                <option value="LAQ">LAQ</option>
+                <option value="Finance & Accounts">Finance & Accounts</option>
+                <option value="HR ES CSR Medical, Town Maint">HR ES CSR Medical, Town Maint</option>
+                <option value="Admin">Admin</option>
+                <option value="HR">HR</option>
+                <option value="Medical">Medical</option>
+                <option value="Corporate HR">Corporate HR</option>
+                <option value="CSR">CSR</option>
+                <option value="Information Technology">Information Technology</option>
+                <option value="MM&C">MM&C</option>
+                <option value="EHS">EHS</option>
+                <option value="Solar, Mechanical Project, Civil, Plant Horticulture"> Solar, Mechanical Project, Civil,
+                  Plant Horticulture</option>
+                <option value="Electrical Project, TL">Electrical Project, TL</option>
+                <option value="Mines and CPP">Mines and CPP</option>
+                <option value="JIPT">JIPT</option>
+                <option value="IV/1">IV/1</option>
+                <option value="Sector 1 E">Sector 1 E</option>
+                <option value="IV/2-3">IV/2-3</option>
+                <option value="Security">Security</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="hodEmail">HOD Email</label>
+              <div class="input-with-icon">
+                <input type="email" id="hodEmail" name="hodEmail" placeholder="HOD email" readonly required>
+                <i class="fas fa-info-circle" title="This will be auto-filled based on your department"></i>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="location">Location</label>
+              <select id="location" name="location" required>
+                <option value="">-- Select Location --</option>
+                <option value="Tamnar">Tamnar Plant</option>
+                <option value="Coal Mines">Coal Mines</option>
+              </select>
+            </div>
+           
+            <div class="form-group full-width">
+              <label for="address">Address</label>
+              <textarea id="address" name="address" rows="3" placeholder="Enter your complete address" required></textarea>
+            </div>
+           
+            <div class="form-group">
+              <label for="contactNumber">Contact Number</label>
+              <input type="tel" id="contactNumber" name="contactNumber" placeholder="Enter your contact number" required>
+            </div>
+        
+            <div class="form-group">
+              <label for="alternateContactNumber">Alternate Contact Number</label>
+              <input type="tel" id="alternateContactNumber" name="alternateContactNumber" placeholder="Enter alternate contact number">
+            </div>
+          </div>
+          <div class="form-navigation">
+            <button type="button" class="btn-next">Next <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- Equipment Details Section -->
+        <div class="form-section" id="equipmentDetails">
+          <h3><i class="fas fa-laptop"></i> Equipment Details</h3>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="item">Select Item</label>
+              <select id="item" name="item" required>
+                <option value="">-- Select Item --</option>
+                <option value="Laptop">Laptop</option>
+                <option value="Desktop">Desktop</option>
+                <option value="ICM">ICM</option>
+                <option value="Printer">Printer</option>
+                <option value="Email Generation">Email Generation</option>
+              </select>
+            </div>
+            <div class="policy">
+              <a href="https://drive.google.com/file/d/1pWh0qZHvFLdvFnB1c4fEHQqbj3SC7Wgl/view">Laptop and Desktop Policys</a>
+            </div>
+            <div class="form-group full-width">
+              <label for="reason">Reason</label>
+              <textarea id="reason" name="reason" rows="4" placeholder="Please provide a detailed reason for your request" required></textarea>
+              <div class="char-counter"><span id="charCount">0</span>/500 characters</div>
+            </div>
+          </div>
+          <div class="form-navigation">
+            <button type="button" class="btn-prev"><i class="fas fa-arrow-left"></i> Previous</button>
+            <button type="button" class="btn-next">Next <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- Review Section -->
+        <div class="form-section" id="reviewSection">
+          <h3><i class="fas fa-check-circle"></i> Review Your Request</h3>
+          <div class="review-summary">
+            <div class="review-item">
+              <h4>Personal Information</h4>
+              <div id="personalInfoReview"></div>
+            </div>
+            <div class="review-item">
+              <h4>Equipment Details</h4>
+              <div id="equipmentReview"></div>
+            </div>
+          </div>
+          <div class="form-navigation">
+            <button type="button" class="btn-prev"><i class="fas fa-arrow-left"></i> Previous</button>
+            <button type="submit" id="submitButton" class="btn-submit">
+              <i class="fas fa-paper-plane"></i> Submit Request
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+      <div class="modal-content">
+        <div class="modal-icon success">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <h3>Request Submitted Successfully!</h3>
+        <p>You'll receive a confirmation email shortly.</p>
+        <div class="modal-actions">
+          
+          <button id="newRequest" class="btn-primary">
+            <i class="fa fa-child"></i> Thank You
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="auth.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
